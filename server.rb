@@ -2,7 +2,10 @@ require 'pry'
 require 'sinatra'
 require 'httparty'
 require 'json'
+require 'json2csv'
 require 'twitter'
+
+set :server, 'webrick'
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
@@ -59,6 +62,37 @@ def combine (array_of_strings)
   super_array.delete("are")
   super_array.delete("was")
   super_array.delete("rt")
+  super_array.delete("")
+  super_array.delete("""")
+  super_array.delete("as")
+  super_array.delete("by")
+  super_array.delete("not")
+  super_array.delete("and")
+  super_array.delete("some")
+  super_array.delete("get")
+  super_array.delete("up")
+  super_array.delete("your")
+  super_array.delete("i")
+  super_array.delete("me")
+  super_array.delete("my")
+  super_array.delete("have")
+  super_array.delete("get")
+  super_array.delete("got")
+  super_array.delete("me")
+  super_array.delete("was")
+  super_array.delete("be")
+  super_array.delete("am")
+  super_array.delete("about")
+  super_array.delete("no")
+  super_array.delete("our")
+  super_array.delete("cant")
+  super_array.delete("wont")
+  super_array.delete("or")
+  super_array.delete("that")
+  super_array.delete("thats")
+  super_array.delete("come")
+  super_array.delete("comes")
+  super_array.delete("so")
   counts = Hash.new 0
   counts_array = []
   super_array.each do |word|
