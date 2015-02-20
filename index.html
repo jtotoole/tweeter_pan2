@@ -25,9 +25,16 @@
 <body>
 
   <div id="container" class="container">
+      <select id="text-select">
+        <option value="sherlock">Sherlock Holmes</option>
+        <option value="aesop">Aesop's Fables</option>
+        <option value="alice">Alice in Wonderland</option>
+        <option value="gulliver">Gulliver's Travels</option>
+         <option value="jtotoole">jtotoole</option>
+      </select>
     <header>
-    <h1><em><strong>Tweeter Pan</strong></em></h1>
-    <h2>The most commonly used words from @<%=handle%>:</h2>
+    <h1>Bubble Cloud</h1>
+    <h2>The most frequently used words in:</h2>
       <h2 id="book-title"></h2>
     </header>
     <div id="main" role="main">
@@ -42,7 +49,7 @@
       </div>
     </div>
     <footer>
-    <p>Shoutout to Jim Vallandingham for the <a href="http://vallandingham.me/building_a_bubble_cloud.html">tutorial</a> and <a href="https://github.com/vlandham/bubble_cloud">original visualization code</a>, plus The New York Times for<a href="http://www.nytimes.com/interactive/2012/09/04/us/politics/democratic-convention-words.html"> the initial inspiration.</a></p>
+    <p><a href="http://vallandingham.me/building_a_bubble_cloud.html">Blog Post</a> | <a href="https://github.com/vlandham/bubble_cloud">Source Code</a> | <a href="http://www.nytimes.com/interactive/2012/09/04/us/politics/democratic-convention-words.html">Original Inspiration</a></p>
     </footer>
   </div> <!--! end of #container -->
 
@@ -50,7 +57,7 @@
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-  <script>window.csv = <%=csv_response.inspect%></script>
+
   <script defer src="js/plugins.js"></script>
   <script src="js/libs/coffee-script.js"></script>
   <script src="js/libs/d3.min.js"></script>

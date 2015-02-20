@@ -1,0 +1,108 @@
+
+body {
+  background-color: #90EE90;
+  text-align: center
+}
+
+a, a:visited {
+  color:#333;
+}
+
+#container {
+  background-color: yellow;
+  padding-top:20px;
+  width: 980px;
+  border-left: 2px #ddd solid;
+  border-right: 2px #ddd solid;
+}
+
+header {
+  padding: 10px;
+}
+
+#book-title {
+  font-family: georgia, "times new roman", times, serif;
+  color: #555;
+  font-size: 2.3em;
+  text-align: center;
+}
+
+#text-select {
+  float:right;
+  margin-right: 10px;
+}
+
+#vis {
+  overflow: hidden;
+  position: relative;
+}
+
+#status {
+  padding:0 0 20px 20px;
+}
+
+#controls {
+  padding: 20px;
+  background-color: yellow;
+  margin: 10px;
+  width: 350px;
+}
+
+#bubble-background {
+  fill: none;
+  pointer-events: all;
+}
+
+.bubble-node {
+    -webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+    animation: myfirst 5s;
+    fill: #90EE90;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    from {fill: blue;}
+    to {fill: #90EE90;}
+}
+
+
+.bubble-hover {
+  /* fill: #b8c7d9; */
+  fill: orange;
+}
+
+.bubble-selected {
+  /* fill: #a8c8ee;  */
+  fill: red;
+  /* stroke: #6081a3; */
+  stroke: #A6BA92;
+  stroke-width: 1.5px;
+}
+
+.active {
+  color: red
+}
+
+a.bubble-label {
+  font-family: georgia, "times new roman", times, serif;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1em;
+  position: absolute;
+}
+
+
+.bubble-label .bubble-label-value {
+  font: 11px sans-serif;
+  white-space: nowrap;
+}
+
+footer p {
+  text-align: center;
+  padding-top:20px;
+  padding-bottom:20px;
+  font: 15px sans-serif;
+}
+

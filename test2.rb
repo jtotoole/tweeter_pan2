@@ -1,3 +1,11 @@
+require 'pry'
+require 'httparty'
+require 'json'
+require 'json2csv'
+require 'twitter'
+require 'csv'
+
+
 def combine (array_of_strings)
 	super_array = []
 	array_of_strings.each do |string|
@@ -39,13 +47,14 @@ def combine (array_of_strings)
 	counts.each do |key, value|
 		counts_array.push({name: key, count: value})
 	end
-	return counts_array
-	counts_array.each do |y|
-		if y.count < 2
-			counts_array.delete(y)
+	sorted = counts_array.sort_by { |v| -v[:count] }
+	sorted = sorted.take(5)
+	CSV.generate do |csv|
+		csv << ["name", "count"]
+		sorted.each do |tweet|
+			csv << [tweet[:name], tweet[:count]]
 		end
 	end
-	return counts_array
 end
 
 

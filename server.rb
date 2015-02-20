@@ -4,6 +4,7 @@ require 'httparty'
 require 'json'
 require 'json2csv'
 require 'twitter'
+require 'csv'
 
 set :server, 'webrick'
 
@@ -101,7 +102,8 @@ def combine (array_of_strings)
   counts.each do |key, value|
     counts_array.push({name: key, count: value})
   end
-  return counts_array
+  sorted = counts_array.sort_by { |v| -v[:count] }
+  sorted.take(100)
 end
 
 get '/' do 
@@ -114,8 +116,12 @@ post '/search' do
     tweet_text.push(x.full_text)
   end
   response = combine(tweet_text)
-  response = response.to_json	
-	erb :results, locals: {response: response}
+  csv_response = CSV.generate do |csv|
+    csv << ["name", "count"]
+    response.each do |tweet|
+      csv << [tweet[:name], tweet[:count]]
+    end
+  end
+	erb :results, locals: {csv_response: csv_response, handle: params["handle"]}
 end
-
 
